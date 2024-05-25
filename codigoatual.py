@@ -16,14 +16,14 @@ class RecipeApp(App):
         self.entrada_nome = TextInput(hint_text='Nome da Receita', hint_text_color = get_color_from_hex('2E522C'), background_color = get_color_from_hex('BAFFC0'))
         self.entrada_ing = TextInput(hint_text='Ingredientes', hint_text_color = get_color_from_hex('2E522C'), background_color = get_color_from_hex('BAFFC0'))
         self.entrada_ins = TextInput(hint_text='Instruções', hint_text_color = get_color_from_hex('2E522C'), background_color = get_color_from_hex('BAFFC0'))
-        self.espaco1 = Label(text ='', size_hint =(None, None), size = (10, 5))
-        self.botao_adc = Button(text='Adicionar Receita', size_hint = (None, None), size = (150, 10), color = get_color_from_hex('BAFFC0'))
+        self.espaco1 = Label(text ='', size_hint =(None, None), size = (50, 6))
+        self.botao_adc = Button(text='Adicionar Receita', size_hint = (None, None), size = (150, 10), color = get_color_from_hex('BAFFC0'), background_normal ='none',  background_color = get_color_from_hex('2E522C'))
         self.botao_adc.bind(on_press=self.adicionar_receita)
         self.espaco2 = Label(text = '', size_hint = (None, None), size = (150, 50))
-        self.botao_del = Button(text='Apagar Receita', size_hint = (None, None), size = (150, 10), color = get_color_from_hex('BAFFC0'))
+        self.botao_del = Button(text='Apagar Receita', size_hint = (None, None), size = (150, 10), color = get_color_from_hex('BAFFC0'), background_normal = "None",  background_color = get_color_from_hex('2E522C'))
         self.botao_del.bind(on_press=self.apagar_receita)
 
-        self.texto_lista = Label(text='Receitas Disponíveis:')
+        self.texto_lista = Label(text='Receitas Disponíveis:', color = get_color_from_hex('2E522C'))
         self.lista_receitas = BoxLayout(orientation='vertical')
 
         self.layout_principal.add_widget(self.entrada_nome)
@@ -35,7 +35,7 @@ class RecipeApp(App):
         self.layout_principal.add_widget(self.botao_del)
         self.layout_principal.add_widget(self.texto_lista)
         self.layout_principal.add_widget(self.lista_receitas)
-        Window.clearcolor = get_color_from_hex('000000')
+        Window.clearcolor = get_color_from_hex('#DEFFDA')
         Window.size = (500, 700)
         return self.layout_principal
 
@@ -47,8 +47,8 @@ class RecipeApp(App):
         if nome and ingredientes and instrucoes:
             self.receitas[nome] = {'Ingredientes': ingredientes, 'Instruções': instrucoes}
 
-            botao_receita = Button(text=nome)
-            botao_receita.bind(on_press=self.mostrar_receita)
+            botao_receita = Button(text = nome, color = get_color_from_hex('BAFFC0'), background_normal = "None",  background_color = get_color_from_hex('2E522C'))
+            botao_receita.bind(on_press = self.mostrar_receita)
             self.lista_receitas.add_widget(botao_receita)
 
             self.entrada_nome.text = ''
@@ -75,6 +75,7 @@ class RecipeApp(App):
             instrucoes = informacao_receita['Instruções']
             texto_receita = f'Ingredientes:\n{ingredientes}\n\nInstruções:\n{instrucoes}'
             self.texto_lista.text = texto_receita
+            self.texto_lista.color = get_color_from_hex('2E522C') 
         else:
             self.texto_lista.text = "Receita não encontrada."
 
