@@ -21,7 +21,7 @@ class RecipeApp(App):
         self.botao_adc = Button(text='Adicionar Receita', size_hint = (None, None), size = (150, 10), color = get_color_from_hex('BAFFC0'), background_normal ='none',  background_color = get_color_from_hex('2E522C'))
         self.botao_adc.bind(on_press=self.adicionar_receita)
         self.espaco2 = Label(text = '', size_hint = (None, None), size = (150, 50))
-        self.botao_mostrar_esconder = Button(text='Mostrar/Esconder Receitas', size_hint=(None, None), size=(150, 10), color=get_color_from_hex('BAFFC0'), background_normal="None",  background_color=get_color_from_hex('2E522C'))
+        self.botao_mostrar_esconder = Button(text='Esconder', size_hint=(None, None), size=(150, 10), color=get_color_from_hex('BAFFC0'), background_normal="None",  background_color=get_color_from_hex('2E522C'))
         self.botao_mostrar_esconder.bind(on_press=self.mostrar_esconder_receitas)
         self.espaco3 = Label(text = '', size_hint = (None, None), size = (150, 50))
         self.botao_del = Button(text='Apagar Receita', size_hint = (None, None), size = (150, 10), color = get_color_from_hex('BAFFC0'), background_normal = "None",  background_color = get_color_from_hex('2E522C'))
@@ -94,10 +94,10 @@ class RecipeApp(App):
     def mostrar_esconder_receitas(self, instance):
         if self.lista_receitas.height > 0:
             self.lista_receitas.height = 0
-            self.botao_mostrar_esconder.text = 'Mostrar Receitas'
+            self.botao_mostrar_esconder.text = 'Mostrar'
         else:
             self.lista_receitas.height = self.lista_receitas.minimum_height
-            self.botao_mostrar_esconder.text = 'Esconder Receitas'
+            self.botao_mostrar_esconder.text = 'Esconder'
 
 if __name__ == '__main__':
     RecipeApp().run()
