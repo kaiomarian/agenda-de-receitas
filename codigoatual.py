@@ -14,9 +14,9 @@ class RecipeApp(App):
         self.receitas = {}  # Dicionário para armazenar as receitas
         self.layout_principal = BoxLayout(orientation='vertical')
 
-        self.entrada_nome = TextInput(hint_text='Nome da Receita(quando for apagar, escreva o nome da receita antes de apertar o botão)', hint_text_color = get_color_from_hex('2E522C'), background_color = get_color_from_hex('BAFFC0'))
-        self.entrada_ing = TextInput(hint_text='Ingredientes', hint_text_color = get_color_from_hex('2E522C'), background_color = get_color_from_hex('BAFFC0'))
-        self.entrada_ins = TextInput(hint_text='Instruções', hint_text_color = get_color_from_hex('2E522C'), background_color = get_color_from_hex('BAFFC0'))
+        self.entrada_nome = TextInput(hint_text='Nome da Receita(quando for apagar, escreva o nome da receita antes de apertar o botão)', hint_text_color = get_color_from_hex('2E522C'), background_color = get_color_from_hex('BAFFC0'), size_hint = (None, None), size = (300, 50))
+        self.entrada_ing = TextInput(hint_text='Ingredientes', hint_text_color = get_color_from_hex('2E522C'), background_color = get_color_from_hex('BAFFC0'), size_hint = (None, None), size = (300, 50))
+        self.entrada_ins = TextInput(hint_text='Instruções', hint_text_color = get_color_from_hex('2E522C'), background_color = get_color_from_hex('BAFFC0'), size_hint = (None, None), size = (300, 50))
         self.espaco1 = Label(text ='', size_hint =(None, None), size = (50, 6))
         self.botao_adc = Button(text='Adicionar Receita', size_hint = (None, None), size = (150, 10), color = get_color_from_hex('BAFFC0'), background_normal ='none',  background_color = get_color_from_hex('2E522C'))
         self.botao_adc.bind(on_press=self.adicionar_receita)
